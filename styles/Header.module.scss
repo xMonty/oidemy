@@ -2,56 +2,166 @@
   position: fixed;
   z-index: 2;
   width: 100%;
-  padding: 1rem;
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 @mixin navItem {
   @include flexCenter(row);
+  height: 100%;
+  text-align: center;
 }
 
 .navLogo {
-  @include navItem();
   font-weight: bold;
+  margin-right: 2rem;;
 }
 
 .navCategories {
-  @include navItem();
   cursor: pointer;
+  display: none;
 }
 
 .navSearch {
   flex-grow: 1;
-  @include navItem();
+  display: none;
 }
 
 .navCart {
-  @include flexCenter(row);
-  @include navItem();
+  display: none;
 }
 
 .navLogin {
-  @include flexCenter(row);
-  @include navItem();
+  display: none;
 }
 
 .navSignup {
-  @include flexCenter(row);
-  @include navItem();
+  display: none;
 }
+
+.navCategories:hover > .catMenu {
+  display: block;
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+}
+
+.catMenu {
+  display: none;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  opacity: 0.98;
+  visibility: hidden;
+  background: $primary-color;
+  z-index: 1;
+  &.open {
+    visibility: visible;
+  }
+}
+
+.menuNav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  height: 100vh;
+  transform: translateX(-100%);
+  background: $primary-color;
+
+  padding-left: 1rem;
+
+  @include transition-ease;
+
+  &.open {
+    transform: translateX(0%);
+  }
+}
+
+.grayOverlay {
+  background: rgb(0 0 0 / 20%);
+  position: absolute;
+  left: 60%;
+  top: 0;
+  width: 40%;
+  height: 100vh;
+  z-index: 2;
+  transform: translateX(100%);
+  @include transition-ease;
+  
+  &.open {
+    transform: translateX(0%);
+  }
+}
+
+
+@include media-md {
+  .menuBtn {
+    visibility: hidden;
+  }
+
+  .container {
+    justify-content: stretch;
+  }
+
+  .navCategories {
+    @include navItem();
+  }
+
+  .navSearch {
+    @include navItem();
+    height: 46px;
+    margin: 10px 20px 10px 20px;
+    border-radius: 20px;
+    border: 1px solid darken($color: $primary-color, $amount: 80);
+    background: darken($color: $primary-color, $amount: 5);
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    padding-left: 1rem;
+  }
+
+  .search {
+    flex: 1;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border: 0;
+    background: darken($color: $primary-color, $amount: 5);
+  }
+
+  .navCart {
+    @include navItem();
+  }
+
+  .navLogin {
+    @include navItem();
+  }
+
+  .navSignup {
+    @include navItem();
+  }
+}
+
+
 
 .menuBtn {
   position: absolute;
-  z-index: 1;
   left: 1rem;
   top: 1rem;
   height: 20px;
   width: 28px;
   cursor: pointer;
+  z-index: 10;
   @include transition-ease;
 
   &__burger {
@@ -84,7 +194,8 @@
     }
 
     &.open {
-      transform: rotate(720deg);
+      transform: translateX(800%) rotate(720deg);
+
       background: transparent;
 
       &::before {
@@ -96,74 +207,5 @@
         transform: rotate(-45deg) translate(3px, -7px);
       }
     }
-  }
-}
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  opacity: 0.98;
-  visibility: hidden;
-
-  &.open {
-    visibility: visible;
-  }
-
-  .menuNav {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    background: $primary-color;
-    list-style-type: none;
-    padding-right: 1rem;
-    transform: translateY(-100%);
-    @include transition-ease;
-
-    &.open {
-      transform: translateY(0);
-    }
-
-    &__item {
-      transform: translateX(100vw);
-      @include transition-ease;
-
-      &.open {
-       transform: translateX(0); 
-      }
-
-      &.active > a {
-        color: $secondary-color;
-      }
-    }
-
-    &__link {
-      display: inline-block;
-      font-size: 2rem;
-      text-transform: uppercase;
-      padding: 2rem 0;
-      font-weight: 300;
-      @include transition-ease;
-
-      &:hover {
-        color: $secondary-color;
-      }
-    }
-  }
-}
-
-@for $i from 1 through 4 {
-  .menuNav__item:nth-child(#{$i}) {
-    transition-delay: ($i * 0.1s) + 0.15s;
-  }
-}
-
-@include media-md {
-  .menuBtn {
-    visibility: hidden;
   }
 }
