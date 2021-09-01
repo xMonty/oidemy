@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import styles from '../../styles/Header.module.scss'
 import CatMenu from './CatMenu';
 import SubMenu from './SubMenu';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import Controls from 'common/Controls/Controls';
 
 function Header() {
 	const [open, setOpen] = useState(false);
@@ -25,8 +27,8 @@ function Header() {
         <input className={styles.search}/>
       </div>
 			<div className={styles.navCart}><FontAwesomeIcon icon={faCartPlus} /></div>
-			<div className={styles.navLogin}>Login</div>
-			<div className={styles.navSignup}>Signup</div>
+			<div className={styles.navLogin}><Controls.UdButton type={Controls.UdButtonType.primaryBk} onClick={()=>{}}>Login</Controls.UdButton></div>
+			<div className={styles.navSignup}><Controls.UdButton type={Controls.UdButtonType.secondaryBk} onClick={()=>{}}>SignUp</Controls.UdButton></div>
 
       <nav className={open ? `${styles.nav} ` + ` ${styles.open}` : `${styles.nav}`}>
         <ul className={open ? `${styles.menuNav} ` + ` ${styles.open}` : `${styles.menuNav}`}>
