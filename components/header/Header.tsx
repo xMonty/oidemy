@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styles from '../../styles/Header.module.scss'
 import CatMenu from './CatMenu';
 import SubMenu from './SubMenu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
 	const [open, setOpen] = useState(false);
@@ -22,7 +24,7 @@ function Header() {
         <span>Search</span>
         <input className={styles.search}/>
       </div>
-			<div className={styles.navCart}>Cart</div>
+			<div className={styles.navCart}><FontAwesomeIcon icon={faCartPlus} /></div>
 			<div className={styles.navLogin}>Login</div>
 			<div className={styles.navSignup}>Signup</div>
 

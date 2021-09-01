@@ -137,18 +137,25 @@
     margin-right: 2rem;
     border: 0;
     background: darken($color: $primary-color, $amount: 5);
+    &:focus {outline:none!important;}
   }
 
   .navCart {
     @include navItem();
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .navLogin {
     @include navItem();
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .navSignup {
     @include navItem();
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 

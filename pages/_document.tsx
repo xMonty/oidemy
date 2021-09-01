@@ -9,6 +9,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto"
             rel="stylesheet"
           />
+          <script src="https://kit.fontawesome.com/8f9573f2fa.js" crossOrigin="anonymous"></script>
         </Head>
         <body>
           <Main />
