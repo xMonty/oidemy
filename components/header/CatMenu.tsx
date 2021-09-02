@@ -1,26 +1,27 @@
-import React from 'react'
+import React from 'react';
+import styles from './CatMenu.module.scss';
 
 function CatMenu() {
   return (
-    <div>
+    <div className={styles.container}>
       <li>
         <a href="index.html">
-          Home
+          Development
         </a>
       </li>
       <li>
         <a href="index.html">
-          Home2
+          Business
         </a>
       </li>
       <li>
         <a href="index.html">
-          Home3
+          Finance & Accounting
         </a>
       </li>
       <li>
         <a href="index.html">
-          Home4
+          IT & Software
         </a>
       </li>
     </div>
