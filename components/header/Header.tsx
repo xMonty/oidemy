@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../../styles/Header.module.scss'
+import styles from './Header.module.scss'
 import CatMenu from './CatMenu';
 import SubMenu from './SubMenu';
 

@@ -1,8 +1,11 @@
 import UdButton, { UdButtonType } from "./Button/UdButton";
+import UdInput, { UdInputType } from "./Input/UdInput";
 
 const Controls = {
   UdButton,
-  UdButtonType
+  UdButtonType,
+  UdInput,
+  UdInputType
 }
 
 export default Controls;
