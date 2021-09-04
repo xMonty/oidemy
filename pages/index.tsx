@@ -1,7 +1,7 @@
 import Controls from 'common/Controls/Controls';
+import Courses from 'components/home/Courses';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/Image';
 import { useState } from 'react';
 import styles from 'styles/Home.module.scss';
 
@@ -28,6 +28,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
+        <Courses />
       </main>
     </div>
   )
