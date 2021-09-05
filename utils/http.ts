@@ -67,26 +67,24 @@ class Http {
     return this.http.delete<T, R>(url, config);
   }
 
-  // Handle global app errors
-  // We can handle generic app errors depending on the status code
   private handleError(error: any) {
     const { status } = error;
 
     switch (status) {
       case StatusCode.InternalServerError: {
-        // Handle InternalServerError
+        console.log("InternalServerError");
         break;
       }
       case StatusCode.Forbidden: {
-        // Handle Forbidden
+        console.log("Forbidden");
         break;
       }
       case StatusCode.Unauthorized: {
-        // Handle Unauthorized
+        console.log("Unauthorized");
         break;
       }
       case StatusCode.TooManyRequests: {
-        // Handle TooManyRequests
+        console.log("TooManyRequests");
         break;
       }
     }

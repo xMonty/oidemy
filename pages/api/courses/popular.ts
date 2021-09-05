@@ -1,7 +1,8 @@
+import { Course } from 'models/course'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
-  courses: Array<Object>
+  courses: Array<Course>
 }
 
 export default async function handler(
@@ -12,7 +13,8 @@ export default async function handler(
     {
       name: 'Learn Python',
       author: 'John Doe',
-      image: '',
+      ratings: '4.5',
+      price: '$19.99'
     }
   ] })
 }

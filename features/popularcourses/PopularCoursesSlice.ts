@@ -7,11 +7,10 @@ import { RootState } from 'app/store';
 import { ApiError } from 'next/dist/server/api-utils';
 import { http } from 'utils/http';
 import { ApiStatus } from 'utils/constants';
-
-
+import { Course } from 'models/course';
 
 export type PopularCoursesState = {
-  courses: Array<Object>
+  courses: Course[]
   apiStatus: ApiStatus
   error: string | null
 }
@@ -24,8 +23,8 @@ const initialState: PopularCoursesState = {
 
 export const fetchPopularCourses = createAsyncThunk('courses/fetchPopular', async (_args, thunkAPI) => {
   try {
-    const response = await http.get('courses/popular');
-    return response.data;
+    const { data } = await http.get('courses/popular');
+    return data.courses;
   } catch (error: unknown) {
     let apiError: ApiError = error as ApiError;
     if(!apiError.message) {
@@ -51,7 +50,7 @@ export const popularCoursesSlice = createSlice({
     })
     .addCase(fetchPopularCourses.fulfilled, (state, { payload }) => {
       state.apiStatus = ApiStatus.success;
-      state.courses = payload;
+      state.courses = payload as Course[] ?? [];
       state.error = null;
     })
     .addCase(fetchPopularCourses.rejected, (state, action) => {
