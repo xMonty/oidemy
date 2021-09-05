@@ -1,18 +1,23 @@
-import 'styles/globals.scss'
-import type { AppProps } from 'next/app'
+import 'styles/globals.scss';
+import type { AppProps } from 'next/app';
+
+import { store } from 'app/store';
+import { Provider } from 'react-redux';
 
 import AppLayout from 'components/applayout/AppLayout';
 
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   return ( 
-    <AppLayout>
-      <Component {...pageProps} />
-    </AppLayout>
+    <Provider store={store}>
+      <AppLayout>
+        <Component {...pageProps} />
+      </AppLayout>
+    </Provider>
   )
 }
-export default MyApp
+export default MyApp;

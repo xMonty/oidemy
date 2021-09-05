@@ -1,5 +1,6 @@
 import Controls from 'common/Controls/Controls';
-import Courses from 'components/home/Courses';
+import Courses from 'components/courses/Courses';
+import PopularCourses from 'features/popularcourses/PopularCourses';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <Courses />
+        <PopularCourses/>
       </main>
     </div>
   )
