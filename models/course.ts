@@ -1,13 +1,13 @@
 import { Schema, models, model } from 'mongoose';
 
-export interface Course {
+export interface ICourse {
   name: string;
   author: string;
   ratings: string;
   price: string;
 }
 
-const schema = new Schema<Course>({
+const schema = new Schema<ICourse>({
   name: { type: String, required: true },
   author: { type: String, required: true },
   ratings: { type: String, required: true },

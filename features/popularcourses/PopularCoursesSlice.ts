@@ -7,10 +7,10 @@ import { RootState } from 'app/store';
 import { ApiError } from 'next/dist/server/api-utils';
 import { http } from 'utils/http';
 import { ApiStatus } from 'utils/constants';
-import { Course } from 'models/course';
+import { ICourse } from 'models/course';
 
 export type PopularCoursesState = {
-  courses: Course[]
+  courses: ICourse[]
   apiStatus: ApiStatus
   error: string | null
 }
@@ -50,7 +50,7 @@ export const popularCoursesSlice = createSlice({
     })
     .addCase(fetchPopularCourses.fulfilled, (state, { payload }) => {
       state.apiStatus = ApiStatus.success;
-      state.courses = payload as Course[] ?? [];
+      state.courses = payload as ICourse[] ?? [];
       state.error = null;
     })
     .addCase(fetchPopularCourses.rejected, (state, action) => {

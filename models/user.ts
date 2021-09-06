@@ -1,12 +1,13 @@
-import { Schema, models, model } from 'mongoose';
+import { Schema, models, model, ObjectId } from 'mongoose';
 
-interface User {
+interface IUser {
+  _id: ObjectId;
   name: string;
   email: string;
   avatar?: string;
 }
 
-const schema = new Schema<User>({
+const schema = new Schema<IUser>({
   name: { type: String, required: true },
   email: { type: String, required: true },
   avatar: String

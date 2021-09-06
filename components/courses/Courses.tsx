@@ -1,14 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './Courses.module.scss';
-import { Course } from 'models/course';
+import { ICourse } from 'models/course';
 
 interface Props {
-  courses: Array<Course>
+  courses: ICourse[]
 }
 
 function Courses( { courses } : Props ) {
-  console.log('courses', (courses));
   return (
     <div className={styles.container}>
       {
