@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './Courses.module.scss';
 import { ICourse } from 'models/course';
+import { Rating, RatingView } from 'react-simple-star-rating'
 
 interface Props {
   courses: ICourse[]
@@ -9,9 +10,9 @@ interface Props {
 
 function Courses( { courses } : Props ) {
   return (
-    <div className={styles.container}>
+    <div >
       {
-        <ul>
+        <ul className={styles.container}>
           {
             courses.map( e => {
               return (
@@ -22,7 +23,9 @@ function Courses( { courses } : Props ) {
                   <div>
                     <div className={styles.courseName}>{e.name}</div>
                     <div className={styles.courseOwner}>Johnny Cash</div>
-                    <div className={styles.courseRatings}>ratings</div>
+                    <div className={styles.courseRatings}>
+                      <Rating onClick={()=>{}} ratingValue={parseFloat(e.ratings)}/>
+                    </div>
                     <div className={styles.coursePrice}></div>
                   </div>
                 </div>
